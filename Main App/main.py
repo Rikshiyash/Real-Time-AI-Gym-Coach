@@ -42,17 +42,26 @@ def main():
             if not api_key and hasattr(st, "secrets") and "GROQ_API_KEY" in st.secrets:
                 api_key = st.secrets["GROQ_API_KEY"]
             
-            groq_client = Groq(api_key=api_key)
-            llm_coach = LLMCoach(groq_client)
-            tts = TextToSpeech()
-            st.session_state.voice_pipeline = VoicePipeline(llm_coach, tts)
+            if not api_key:
+                st.session_state.voice_pipeline = None
+                st.session_state.missing_api_key = True
+            else:
+                groq_client = Groq(api_key=api_key)
+                llm_coach = LLMCoach(groq_client)
+                tts = TextToSpeech()
+                st.session_state.voice_pipeline = VoicePipeline(llm_coach, tts)
+                st.session_state.missing_api_key = False
         except Exception as e:
             st.session_state.voice_pipeline = None
+            st.session_state.missing_api_key = True
 
     workout_started = st.session_state.get("workout_started", False)
     
     with st.sidebar:
         st.title("🏋️‍♂️ Apna AI Coach")
+
+        if st.session_state.get("missing_api_key", False):
+            st.warning("⚠️ GROQ_API_KEY is missing. Voice coach is disabled. Add it to Streamlit Secrets.")
 
         if st.session_state.username:
             st.caption(f"👤 Login as {st.session_state.username}")

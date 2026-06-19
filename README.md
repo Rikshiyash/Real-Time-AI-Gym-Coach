@@ -5,6 +5,8 @@
   
   **Real-time pose detection with proactive AI voice coaching**
 
+  🚀 **[Try the Live App Here!](https://fanciful-bublanina-bfc736.netlify.app/)** 🚀
+
   <p align="center">
     <img src="https://img.shields.io/badge/Python-3.9+-blue.svg" alt="Python">
     <img src="https://img.shields.io/badge/Streamlit-1.54.0-FF4B4B.svg" alt="Streamlit">

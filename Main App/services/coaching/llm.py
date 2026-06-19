@@ -19,14 +19,18 @@ class LLMCoach:
             {"role": "user", "content": prompt}
         ]
 
-        response = self.client.chat.completions.create(
-            model="llama-3.3-70b-versatile",
-            messages=messages,
-            temperature=0.4,
-        )
+        try:
+            response = self.client.chat.completions.create(
+                model="llama-3.3-70b-versatile",
+                messages=messages,
+                temperature=0.4,
+            )
 
-        text = response.choices[0].message.content.strip()
-        self.history.append({"role": "assistant", "content": text})
+            text = response.choices[0].message.content.strip()
+            self.history.append({"role": "assistant", "content": text})
 
-        return text
+            return text
+        except Exception as e:
+            print(f"Error calling Groq API: {e}")
+            return "Keep going! You're doing great!"
     
