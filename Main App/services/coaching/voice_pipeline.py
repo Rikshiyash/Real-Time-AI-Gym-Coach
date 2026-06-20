@@ -81,19 +81,20 @@ class VoicePipeline:
         voice = self.tts.speak(text)
 
         self.last_spoken_at = now
+        st.session_state.audio_id = now
 
         return voice, text
     
 
 import base64
 
-def autoplay_audio(audio_bytes):
+def autoplay_audio(audio_bytes, audio_id="default"):
     if not audio_bytes:
         return
     
     b64 = base64.b64encode(audio_bytes).decode()
     md = f"""
-        <audio autoplay>
+        <audio autoplay id="audio_{audio_id}" class="stAudio">
             <source src="data:audio/mp3;base64,{b64}" type="audio/mp3">
         </audio>
         """

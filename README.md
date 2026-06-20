@@ -22,7 +22,7 @@
 
 **AI Real-Time GYM Coach** is a cutting-edge web application that transforms your device into a personal trainer. Utilizing computer vision (MediaPipe) and advanced Large Language Models (Groq), it tracks your workout in real-time and provides actionable, voice-guided feedback to perfect your form and count your reps.
 
-No more guessing if your squats are deep enough or if your form is correct. Apna AI Coach watches, analyzes, and guides you to success.
+No more guessing if your squats are deep enough or if your form is correct. AI Coach watches, analyzes, and guides you to success.
 
 ---
 

@@ -10,7 +10,7 @@ def render_login_wall():
     col1, col2, col3 = st.columns([1, 6, 1])
     
     with col2:
-        st.markdown("<h1 style='text-align: center; margin-bottom: 0;'>🏋️‍♂️ Apna AI Coach</h1>", unsafe_allow_html=True)
+        st.markdown("<h1 style='text-align: center; margin-bottom: 0;'>🏋️‍♂️ AI Coach</h1>", unsafe_allow_html=True)
         st.markdown("<p style='text-align: center; color: #888; font-size: 1.1rem; margin-bottom: 2rem;'>Your form analyzed and corrected in milliseconds.</p>", unsafe_allow_html=True)
 
         with st.form("login_form", clear_on_submit=False):

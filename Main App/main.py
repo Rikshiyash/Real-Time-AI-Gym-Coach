@@ -58,7 +58,7 @@ def main():
     workout_started = st.session_state.get("workout_started", False)
     
     with st.sidebar:
-        st.title("🏋️‍♂️ Apna AI Coach")
+        st.title("🏋️‍♂️ AI Coach")
 
         if st.session_state.get("missing_api_key", False):
             st.warning("⚠️ GROQ_API_KEY is missing. Voice coach is disabled. Add it to Streamlit Secrets.")
@@ -178,8 +178,8 @@ def main():
     st.markdown("#### Real-time pose detection with proactive AI voice coaching")
  
     if st.session_state.get("audio_to_play"):
-        autoplay_audio(st.session_state.audio_to_play)
-        st.session_state.audio_to_play = None
+        audio_id = st.session_state.get("audio_id", "default")
+        autoplay_audio(st.session_state.audio_to_play, audio_id)
 
     if st.session_state.get("coach_feedback"):
         st.markdown("")
